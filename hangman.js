@@ -72,7 +72,7 @@ function gameCycle () {
 }
 
 gameCycle();
-
+console.log("kris is really gay");
 // gameCycle();
 
 // function gameCycle () {
