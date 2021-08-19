@@ -72,7 +72,7 @@ function gameCycle () {
 }
 
 gameCycle();
-console.log("kris is really gay");
+console.log("kris is really smart");
 // gameCycle();
 
 // function gameCycle () {
