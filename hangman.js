@@ -1,3 +1,4 @@
+const { resolveCaa } = require("dns");
 const readline = require("readline");
 
 const rl = readline.createInterface({
@@ -33,79 +34,68 @@ function letterChecker (letter) {
                 emptySpaces[i] = letter
             }
         }
-        console.log("yee haw");
+        console.log("Yee haw! you got the right letter!");
         console.log(emptySpaces.toString());
 
     } else {
+        console.log("Oh no! wrong letter! " + livesLeft + " lives remaining")
         livesLeft --;
-        console.log(livesLeft);
+        
+
     }
 }
 
+function gameCycle () {
+    console.log(emptySpaces.toString());
+    rl.question("guess a letter! ", function (answer) {
+        guessedLetters.push(answer);
+        letterChecker(answer); 
+        console.log("Letters guessed already: " + guessedLetters);
+
+        if (guessWord == emptySpaces.toString()) {
+            console.log("YEEEE BOOOIII YOU DID IT");
+
+            rl.close }
+
+            if (livesLeft < 1){
+                console.log("its dead jim")
+            rl.close
+        }   if (livesLeft > 0) {
+            gameCycle();
+        }
+       
+            else {
+                rl.close
+            }
+                       
+      });
+}
+
+gameCycle();
+
+// gameCycle();
+
+// function gameCycle () {
+//     console.log(emptySpaces.toString());
+//     rl.question("guess a letter! ", function (answer) {
+//         guessedLetters.push(answer);
+//         letterChecker(answer); 
+//         console.log("Letters guessed already: " + guessedLetters);
+        
+//         if (livesLeft > 0){
+//             gameCycle()
+//         }
+
+//         else if (emptySpaces == guessWord) {
+//             console.log("YEEEE BOOOIII YOU DID IT");
+
+//             rl.close }
+//             else {
+//                 rl.close
+//             }
+                       
+//       });
+// }
 
 
-// rl.question("guess a letter! ", function (answer) {
-//     console.log(`You have guessed, ${answer}`);
-//     guessedLetters.push(answer);
-//     console.log(guessedLetters);
-//     rl.close();
-//   });
-
-// console.log(emptySpaces.toString());
-
-
-// rl.question("guess a letter! ", function (answer) {
-//     console.log(`You have guessed, ${answer}`);
-//     guessedLetters.push(answer);
-//     console.log(guessedLetters);
-//     rl.close();
-//   });
-
-// console.log(emptySpaces.toString());
-
-
-// rl.question("guess a letter! ", function (answer) {
-//     console.log(`You have guessed, ${answer}`);
-//     guessedLetters.push(answer);
-//     console.log(guessedLetters);
-//     rl.close();
-//   });
-
-console.log(emptySpaces.toString());
-
-rl.question("guess a letter! ", function (answer) {
-    console.log(`You have guessed, ${answer}`);
-    guessedLetters.push(answer);
-    console.log(guessedLetters);
-    letterChecker(answer);
-    rl.close();
-  });
-
-console.log(emptySpaces.toString());
-
-
-
-
-//const drawnWord = possibleWords[wordCharacters]
-
-//console.log(guessWord);
-
-
-
-
-//need to count characters in drawn word to play the game
-//Math.floor(Math.Random()) * 3
-//subtract from lives when wrong letter guessed
-//keep track of letters guessed already 
-
-//math.random( possibelwordd length)
-
-
-
-// rl.question("guess a letter! ", function (answer) {
-//     console.log(`Oh, so your name is ${answer}`);
-//     console.log("Closing the interface");
-//     rl.close();
-//   });
-
-//   //well done or bad luck on win or lose
+// gameCycle();
