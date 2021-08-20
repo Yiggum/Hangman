@@ -6,15 +6,15 @@ const rl = readline.createInterface({
     output: process.stdout,
   });
 
-
-const possibleWords = ["handkerchief", "manoeuvre", "embarrass", "occurrence"]
+const possibleWords = ["handkerchief", "volkswagen", "scoobydoo", "runescape"]
 
 let livesLeft = 10
 
 let guessWord = possibleWords [Math.floor(Math.random() * possibleWords.length)]
 
 let guessedLetters = []
-let emptySpaces= []
+
+let emptySpaces = []
 
 for (i = 0; i < guessWord.length; i++) {
     emptySpaces.push("_")
@@ -28,36 +28,37 @@ function letterChecker (letter) {
                 emptySpaces[i] = letter
             }
         }
-        console.log("Yee haw! you got the right letter!");
-        console.log(emptySpaces.join(''));
-
-    } else {
-        console.log("Oh no! wrong letter! " + livesLeft + " lives remaining")
-        livesLeft --;
+        console.log("\nYee haw! you got the right letter!");
         
 
+    } else {
+        console.log("\nOh no! wrong letter! " + livesLeft + " lives remaining")
+        livesLeft --;        
+            }
     }
-}
+
 
 function gameCycle () {
     console.log(emptySpaces.join(''));
     rl.question("guess a letter! ", function (answer) {
-        guessedLetters.push(answer.toLowerCase);
-        letterChecker(answer); 
-        console.log("Letters guessed already: " + guessedLetters);
+        guessedLetters.push(answer);
+        if (answer = answer.toLowerCase()) {
+           letterChecker(answer); 
+        console.log("\nYou have already used these characters: " + guessedLetters);
+    }
 
         if (guessWord == emptySpaces.join('')) {
-            console.log(">>>YEEEE BOOOIII YOU DID IT, you gussed the word: " + emptySpaces.join('') + "<<<");
-
+            console.log("\nYOU DID IT! you guessed the word: " + guessWord);
             rl.close }
 
             if (livesLeft < 1){
-                console.log("it's dead jim.")
+                console.log("It's dead jim.")
+                console.log("")
             rl.close
-        }   if (livesLeft > 0) {
+        }   
+            if (livesLeft > 0) {
             gameCycle();
         }
-       
             else {
                 rl.close
             }
@@ -67,7 +68,18 @@ function gameCycle () {
 
 gameCycle();
 
-// gameCycle();
+
+
+
+
+
+
+
+
+
+
+
+
 
 // function gameCycle () {
 //     console.log(emptySpaces.toString());
