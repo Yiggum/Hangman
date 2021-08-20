@@ -7,15 +7,9 @@ const rl = readline.createInterface({
   });
 
 
-const possibleWords = ["moisten", "elephant", "orangutan", "helicopter"]
+const possibleWords = ["handkerchief", "manoeuvre", "embarrass", "occurrence"]
 
 let livesLeft = 10
-
-// let number = Math.floor(Math.random() * possibleWords.length)
-
-// const drawnWord = possibleWords[wordCharacters]
-
-// console.log(drawnWord);
 
 let guessWord = possibleWords [Math.floor(Math.random() * possibleWords.length)]
 
@@ -35,7 +29,7 @@ function letterChecker (letter) {
             }
         }
         console.log("Yee haw! you got the right letter!");
-        console.log(emptySpaces.toString());
+        console.log(emptySpaces.join(''));
 
     } else {
         console.log("Oh no! wrong letter! " + livesLeft + " lives remaining")
@@ -46,19 +40,19 @@ function letterChecker (letter) {
 }
 
 function gameCycle () {
-    console.log(emptySpaces.toString());
+    console.log(emptySpaces.join(''));
     rl.question("guess a letter! ", function (answer) {
-        guessedLetters.push(answer);
+        guessedLetters.push(answer.toLowerCase);
         letterChecker(answer); 
         console.log("Letters guessed already: " + guessedLetters);
 
-        if (guessWord == emptySpaces.toString()) {
-            console.log("YEEEE BOOOIII YOU DID IT");
+        if (guessWord == emptySpaces.join('')) {
+            console.log(">>>YEEEE BOOOIII YOU DID IT, you gussed the word: " + emptySpaces.join('') + "<<<");
 
             rl.close }
 
             if (livesLeft < 1){
-                console.log("its dead jim")
+                console.log("it's dead jim.")
             rl.close
         }   if (livesLeft > 0) {
             gameCycle();
@@ -72,7 +66,7 @@ function gameCycle () {
 }
 
 gameCycle();
-console.log("kris is really smart");
+
 // gameCycle();
 
 // function gameCycle () {
