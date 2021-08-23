@@ -1,0 +1,26 @@
+{
+  "name": "hangman",
+  "version": "1.0.0",
+  "description": "simple Hangman game",
+  "main": "hangman.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^9.1.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yiggum/Hangman.git"
+  },
+  "author": "Steven Allen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yiggum/Hangman/issues"
+  },
+  "homepage": "https://github.com/Yiggum/Hangman#readme"
+}

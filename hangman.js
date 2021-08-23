@@ -1,4 +1,3 @@
-const { resolveCaa } = require("dns");
 const readline = require("readline");
 
 const rl = readline.createInterface({
@@ -6,7 +5,7 @@ const rl = readline.createInterface({
     output: process.stdout,
   });
 
-const possibleWords = ["handkerchief", "volkswagen", "scoobydoo", "runescape"]
+const possibleWords = ["handkerchief", "volkswagen", "scoobydee", "runescape"]
 
 let livesLeft = 10
 
@@ -21,19 +20,22 @@ for (i = 0; i < guessWord.length; i++) {
 }
 
 
-function letterChecker (letter) {
+module.exports = function letterChecker (letter) {
+    const possibleWords = ["handkerchief", "volkswagen", "scoobydee", "runescape"]
+    let guessWord = possibleWords [Math.floor(Math.random() * possibleWords.length)]
     if (guessWord.includes(letter)) {
         for (i = 0; i < guessWord.length; i++) {
             if (guessWord[i] == letter) {
                 emptySpaces[i] = letter
             }
         }
-        console.log("\nYee haw! you got the right letter!");
+        return "Yee haw! you got the right letter!";
         
 
     } else {
-        console.log("\nOh no! wrong letter! " + livesLeft + " lives remaining")
-        livesLeft --;        
+        livesLeft --; 
+        return "Oh no! wrong letter! " + livesLeft + " lives remaining"
+               
             }
     }
 
@@ -67,7 +69,6 @@ function gameCycle () {
 }
 
 gameCycle();
-
 
 
 
